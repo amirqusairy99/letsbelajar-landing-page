@@ -12,7 +12,7 @@ export const About = () => {
         <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
 
           {/* Left Side: Image Placeholder */}
-          <div className="w-[300px] h-[300px] bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse flex items-center justify-center shrink-0">
+          <div className="w-full max-w-[300px] aspect-square mx-auto bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse flex items-center justify-center shrink-0">
             <span className="text-muted-foreground">Builder Photo</span>
           </div>
 
