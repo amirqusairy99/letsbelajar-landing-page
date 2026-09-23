@@ -61,7 +61,8 @@ export const Features = () => {
       </h2>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
-        {features.map(({ title, description, image }: FeatureProps) => (
+        {/* Top 3 vertical cards */}
+        {features.slice(0, 3).map(({ title, description, image }: FeatureProps) => (
           <Card key={title} className="flex flex-col">
             <CardHeader>
               <CardTitle>{title}</CardTitle>
@@ -69,21 +70,30 @@ export const Features = () => {
 
             <CardContent className="flex-1">{description}</CardContent>
 
-            <CardFooter>
-              {image ? (
+            {image && (
+              <CardFooter>
                 <img
                   src={image}
                   alt={title}
                   className="w-[200px] lg:w-[250px] mx-auto object-contain"
                 />
-              ) : (
-                <div className="w-full h-[150px] bg-slate-100 dark:bg-slate-800 rounded-md animate-pulse flex items-center justify-center">
-                  <span className="text-muted-foreground text-sm">Feature Screenshot</span>
-                </div>
-              )}
-            </CardFooter>
+              </CardFooter>
+            )}
           </Card>
         ))}
+
+        {/* Bottom 2 wide/horizontal cards */}
+        <div className="col-span-full grid md:grid-cols-2 gap-8">
+          {features.slice(3).map(({ title, description }: FeatureProps) => (
+            <Card key={title} className="flex flex-col justify-center">
+              <CardHeader>
+                <CardTitle>{title}</CardTitle>
+              </CardHeader>
+
+              <CardContent>{description}</CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
