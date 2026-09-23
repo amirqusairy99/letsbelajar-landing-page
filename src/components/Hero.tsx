@@ -1,6 +1,6 @@
-import { Button } from "./ui/button";
 import { buttonVariants } from "./ui/button";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import cubeLeg from "../assets/cube-leg.png";
 
 export const Hero = () => {
   return (
@@ -50,11 +50,13 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Hero cards sections */}
-      <div className="z-10 w-full">
-        <div className="w-full h-[500px] bg-slate-200 dark:bg-slate-800 rounded-lg shadow-xl animate-pulse flex items-center justify-center">
-          <span className="text-muted-foreground">App Screenshot Placeholder</span>
-        </div>
+      {/* Hero illustration */}
+      <div className="z-10 w-full flex justify-center">
+        <img
+          src={cubeLeg}
+          alt="Hero Illustration"
+          className="w-[300px] md:w-[400px] lg:w-[500px] object-contain"
+        />
       </div>
 
       {/* Shadow effect */}

@@ -1,4 +1,3 @@
-
 import {
   Card,
   CardContent,
@@ -7,9 +6,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import image1 from "../assets/looking-ahead.png";
+import image2 from "../assets/reflecting.png";
+import image3 from "../assets/growth.png";
+
 interface FeatureProps {
   title: string;
   description: string;
+  image?: string;
 }
 
 const features: FeatureProps[] = [
@@ -17,16 +21,19 @@ const features: FeatureProps[] = [
     title: "Kanban Board Task Management",
     description:
       "Break down assignments and track progress dynamically with To Do, In Progress, and Completed states.",
+    image: image1,
   },
   {
     title: "Interactive Calendar",
     description:
       "Stay on top of deadlines, tasks, and assignment schedules in one unified view.",
+    image: image2,
   },
   {
     title: "File & Folder Sharing",
     description:
       "Organize resources effortlessly with built-in, in-browser PDF previews.",
+    image: image3,
   },
   {
     title: "Role-Based Access",
@@ -54,7 +61,7 @@ export const Features = () => {
       </h2>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
-        {features.map(({ title, description }: FeatureProps) => (
+        {features.map(({ title, description, image }: FeatureProps) => (
           <Card key={title} className="flex flex-col">
             <CardHeader>
               <CardTitle>{title}</CardTitle>
@@ -63,9 +70,17 @@ export const Features = () => {
             <CardContent className="flex-1">{description}</CardContent>
 
             <CardFooter>
-              <div className="w-full h-[150px] bg-slate-100 dark:bg-slate-800 rounded-md animate-pulse flex items-center justify-center">
-                <span className="text-muted-foreground text-sm">Feature Screenshot</span>
-              </div>
+              {image ? (
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-[200px] lg:w-[250px] mx-auto object-contain"
+                />
+              ) : (
+                <div className="w-full h-[150px] bg-slate-100 dark:bg-slate-800 rounded-md animate-pulse flex items-center justify-center">
+                  <span className="text-muted-foreground text-sm">Feature Screenshot</span>
+                </div>
+              )}
             </CardFooter>
           </Card>
         ))}
